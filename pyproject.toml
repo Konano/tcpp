@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "tcpp"
-version = "1.0.0"
+version = "1.0.1"
 description = "A Python implementation of TCP ping that tests connectivity to a remote host"
 authors = [
     {name = "NanoApe", email = "nanoapezlk@gmail.com"}

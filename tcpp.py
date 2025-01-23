@@ -58,7 +58,7 @@ Author:
     NanoApe
 
 Version:
-    1.0.0
+    1.0.1
 
 License:
     MIT License
@@ -81,7 +81,7 @@ from dataclasses import dataclass  # Requires Python 3.7+
 from enum import Enum, auto
 from typing import Any, List, NoReturn, Optional, Tuple
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 
 @dataclass
