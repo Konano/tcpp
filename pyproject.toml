@@ -35,8 +35,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Konano/tcpp"  # 替换为你的实际仓库地址
-Repository = "https://github.com/Konano/tcpp"  # 替换为你的实际仓库地址
+Homepage = "https://github.com/Konano/tcpp"
+Repository = "https://github.com/Konano/tcpp"
 
 [project.scripts]
 tcpp = "tcpp:main"
