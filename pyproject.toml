@@ -1,0 +1,46 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "tcpp"
+version = "1.0.0"
+description = "A Python implementation of TCP ping that tests connectivity to a remote host"
+authors = [
+    {name = "NanoApe", email = "nanoapezlk@gmail.com"}
+]
+license = {file = "LICENSE"}
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["tcp", "ping", "network", "connectivity", "diagnostic"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet",
+    "Topic :: System :: Networking",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/Konano/tcpp"  # 替换为你的实际仓库地址
+Repository = "https://github.com/Konano/tcpp"  # 替换为你的实际仓库地址
+
+[project.scripts]
+tcpp = "tcpp:main"
+
+# 模块级文档
+[tool.flit.module]
+name = "tcpp"
