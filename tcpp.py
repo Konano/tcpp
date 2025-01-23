@@ -18,7 +18,7 @@ Features:
     - Allows forcing specific IP version (v4/v6)
 
 Usage:
-    python tcping.py [-h] [-c COUNT] [-t TIMEOUT] [-4] [-6] [-v] host [port]
+    python tcpp.py [-h] [-c COUNT] [-t TIMEOUT] [-4] [-6] [-v] host [port]
 
 Arguments:
     host                Target hostname or IP address to ping
@@ -26,7 +26,7 @@ Arguments:
 
 Options:
     -h, --help         Show this help message and exit
-    -c, --count COUNT  Number of pings to send (default: 4, 0 = infinite)
+    -c, --count COUNT  Number of pings to send (default: 10, 0 = infinite)
     -t, --timeout SEC  Connection timeout in seconds (default: 1.0)
     -4                 Force using IPv4
     -6                 Force using IPv6
@@ -34,16 +34,16 @@ Options:
 
 Examples:
     # Basic usage - ping port 80 on example.com
-    python tcping.py example.com
+    python tcpp.py example.com
 
     # Ping HTTPS port with 10 attempts and 2 second timeout
-    python tcping.py example.com 443 -c 10 -t 2
+    python tcpp.py example.com 443 -c 10 -t 2
 
     # Force IPv6 and ping custom port
-    python tcping.py example.com 8080 -6
+    python tcpp.py example.com 8080 -6
 
     # Continuous ping until interrupted
-    python tcping.py example.com -c 0
+    python tcpp.py example.com -c 0
 
 Notes:
     - Requires Python 3.7 or higher
@@ -87,7 +87,6 @@ __version__ = "1.0.0"
 @dataclass
 class PingResult:
     """Store single ping result"""
-    __slots__ = ['success', 'time_ms', 'error']
     success: bool
     time_ms: float
     error: Optional[str] = None
@@ -319,18 +318,18 @@ def main() -> int:
     1: All pings failed
     2: Argument error or other error
     """
-    parser = argparse.ArgumentParser(description='TCP ping utility')
-    parser.add_argument('host', help='Target host')
+    parser = argparse.ArgumentParser(description='TCP ping utility', prog='tcpp')
+    parser.add_argument('host', help='target host')
     parser.add_argument('port', nargs='?', type=int, default=80,
-                        help='Target port (default: 80)')
-    parser.add_argument('-c', '--count', type=int, default=4,
-                        help='Try connections counts (default 4, 0 means infinite)')
+                        help='target port (default: 80)')
+    parser.add_argument('-c', '--count', type=int, default=10,
+                        help='try connections counts (default 10, 0 means infinite)')
     parser.add_argument('-t', '--timeout', type=float, default=1.0,
-                        help='Timeout seconds (default 1, 0 means no timeout)')
+                        help='timeout seconds (default 1, 0 means no timeout)')
     parser.add_argument('-4', dest='ipv4', action='store_true',
-                        help='Force using IPv4')
+                        help='force using IPv4')
     parser.add_argument('-6', dest='ipv6', action='store_true',
-                        help='Force using IPv6')
+                        help='force using IPv6')
     parser.add_argument('-v', '--version', action='version',
                         version=f'%(prog)s {__version__}')
 
